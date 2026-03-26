@@ -1,0 +1,4 @@
+TCP
+gcc broker_tcp.c -o broker_tcp
+gcc subscriber_tcp.c -o subscriber_tcp
+gcc publisher_tcp.c -o publisher_tcp
