@@ -102,9 +102,7 @@ int configure_client(int index, char *buffer) {
         clients[index].topic[TOPIC_SIZE - 1] = '\0';
 
         char response[200];
-        snprintf(response, sizeof(response),
-                 "Registrado como publisher del tema: %s\n",
-                 clients[index].topic);
+        snprintf(response, sizeof(response),"Registrado como publisher del tema: %s\n",clients[index].topic);
         send(clients[index].socket_fd, response, strlen(response), 0);
         return 1;
     }
@@ -115,9 +113,7 @@ int configure_client(int index, char *buffer) {
         clients[index].topic[TOPIC_SIZE - 1] = '\0';
 
         char response[200];
-        snprintf(response, sizeof(response),
-                 "Registrado como subscriber del tema: %s\n",
-                 clients[index].topic);
+        snprintf(response, sizeof(response),"Registrado como subscriber del tema: %s\n",clients[index].topic);
         send(clients[index].socket_fd, response, strlen(response), 0);
         return 1;
     }
@@ -208,10 +204,7 @@ int main() {
                 send(new_socket, msg, strlen(msg), 0);
                 close(new_socket);
             } else {
-                printf("Nueva conexion aceptada. Socket=%d, IP=%s, Puerto=%d\n",
-                       new_socket,
-                       inet_ntoa(client_addr.sin_addr),
-                       ntohs(client_addr.sin_port));
+                printf("Nueva conexion aceptada. Socket=%d, IP=%s, Puerto=%d\n", new_socket, inet_ntoa(client_addr.sin_addr),ntohs(client_addr.sin_port));
 
                 char *msg = "Bienvenido al broker TCP. Identifiquese con PUB <tema> o SUB <tema>\n";
                 send(new_socket, msg, strlen(msg), 0);
@@ -241,8 +234,7 @@ int main() {
 
                 // Si es publisher, todo lo que mande se redistribuye
                 if (clients[i].type == CLIENT_PUBLISHER) {
-                    printf("Mensaje recibido de publisher [%s]: %s\n",
-                           clients[i].topic, buffer);
+                    printf("Mensaje recibido de publisher [%s]: %s\n", clients[i].topic, buffer);
 
                     send_to_subscribers(clients[i].topic, buffer);
                 } else {
