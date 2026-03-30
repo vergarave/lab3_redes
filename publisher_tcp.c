@@ -8,7 +8,7 @@
 #include <netinet/in.h>
 
 #define PORT 5000
-#define SERVER_IP "192.168.68.108"
+#define SERVER_IP "127.0.0.1"
 #define BUFFER_SIZE 1024
 #define TOPIC_SIZE 100
 
