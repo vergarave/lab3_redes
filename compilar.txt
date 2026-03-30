@@ -1,4 +1,26 @@
-TCP
-gcc broker_tcp.c -o broker_tcp
+=== COMANDOS DE COMPILACIÓN ===
+
+TCP (Puerto 5000)
+gcc broker_tcp.c     -o broker_tcp
+gcc publisher_tcp.c  -o publisher_tcp
 gcc subscriber_tcp.c -o subscriber_tcp
-gcc publisher_tcp.c -o publisher_tcp
+
+UDP (Puerto 5001)
+gcc broker_udp.c     -o broker_udp
+gcc publisher_udp.c  -o publisher_udp
+gcc subscriber_udp.c -o subscriber_udp
+
+QUIC-like Bono 1 (Puerto 5002)
+gcc broker_quic.c     -o broker_quic
+gcc publisher_quic.c  -o publisher_quic
+gcc subscriber_quic.c -o subscriber_quic
+
+=== ORDEN DE EJECUCIÓN ===
+1. Iniciar broker primero
+2. Luego subscribers
+3. Luego publishers
+
+=== PUERTOS ===
+TCP:       5000
+UDP:       5001
+QUIC-like: 5002
